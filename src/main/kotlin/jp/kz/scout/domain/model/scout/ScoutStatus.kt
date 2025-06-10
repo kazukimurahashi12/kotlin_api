@@ -59,4 +59,7 @@ enum class ScoutStatus(
      */
     DELETED("DELETED", "削除済み", "削除されたスカウト");
 
+    companion object {
+        
+    }
 }
