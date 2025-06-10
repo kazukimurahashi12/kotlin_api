@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/local?serverTimezone=Asia/Tokyo
+    username: testuser
+    password: testpw
+  jooq:
+    sql-dialect: mysql
