@@ -2,21 +2,19 @@ package jp.kz.scout.domain.model.scout
 
 import java.time.LocalDateTime
 
-/**
- *  スカウトに含まれるメッセージ内容を表す値オブジェクト
- *
- */
-class ScoutMessage private constructor(
-    val subject: String,
-    val body: String,
-    val personalizedGreeting: String?,
-    val companyIntroduction: String?,
-    val positionDescription: String?,
-    val benefits: String?,
-    val callToAction: String,
-    val createdAt: LocalDateTime,
-    val updatedAt: LocalDateTime
-){
+/** スカウトに含まれるメッセージ内容を表す値オブジェクト */
+class ScoutMessage
+private constructor(
+        val subject: String,
+        val body: String,
+        val personalizedGreeting: String?,
+        val companyIntroduction: String?,
+        val positionDescription: String?,
+        val benefits: String?,
+        val callToAction: String,
+        val createdAt: LocalDateTime,
+        val updatedAt: LocalDateTime
+) {
 
     /**
      * 新しいスカウトメッセージを作成する
@@ -31,29 +29,29 @@ class ScoutMessage private constructor(
      * @return 作成されたスカウトメッセージ
      */
     fun create(
-        subject: String,
-        body: String,
-        personalizedGreeting: String? = null,
-        companyIntroduction: String? = null,
-        positionDescription: String? = null,
-        benefits: String? = null,
-        callToAction: String = "ご興味をお持ちいただけましたら、ぜひご返信ください。"
+            subject: String,
+            body: String,
+            personalizedGreeting: String? = null,
+            companyIntroduction: String? = null,
+            positionDescription: String? = null,
+            benefits: String? = null,
+            callToAction: String = "ご興味をお持ちいただけましたら、ぜひご返信ください。"
     ): ScoutMessage {
         val now = LocalDateTime.now()
 
         return ScoutMessage(
-            subject = subject.trim(),
-            body = body.trim(),
-            personalizedGreeting = personalizedGreeting?.trim(),
-            companyIntroduction = companyIntroduction?.trim(),
-            positionDescription = positionDescription?.trim(),
-            benefits = benefits?.trim(),
-            callToAction = callToAction.trim(),
-            createdAt = now,
-            updatedAt = now
-        ).also { it.validate() }
+                        subject = subject.trim(),
+                        body = body.trim(),
+                        personalizedGreeting = personalizedGreeting?.trim(),
+                        companyIntroduction = companyIntroduction?.trim(),
+                        positionDescription = positionDescription?.trim(),
+                        benefits = benefits?.trim(),
+                        callToAction = callToAction.trim(),
+                        createdAt = now,
+                        updatedAt = now
+                )
+                .also { it.validate() }
     }
-
 
     /**
      * メッセージの妥当性を検証する
@@ -65,5 +63,5 @@ class ScoutMessage private constructor(
         if (subject.isBlank()) {
             throw IllegalArgumentException("スカウトの件名は必須です")
         }
-
+    }
 }

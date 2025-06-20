@@ -2,9 +2,7 @@ package jp.kz.scout.domain.common.value
 
 import java.util.UUID
 
-/**
- * スカウトを識別するための値オブジェクト
- */
+/** スカウトを識別するための値オブジェクト */
 class ScoutId private constructor(private val value: String) {
 
     companion object {
@@ -22,8 +20,7 @@ class ScoutId private constructor(private val value: String) {
         }
 
         /**
-         * 既存の文字列からスカウトIDを作成
-         * 主にリポジトリからの再構築時に使用される
+         * 既存の文字列からスカウトIDを作成 主にリポジトリからの再構築時に使用される
          *
          * @param id ID文字列
          * @return 指定された文字列から作成されたスカウトID
@@ -35,8 +32,7 @@ class ScoutId private constructor(private val value: String) {
         }
 
         /**
-         * 外部システムから受け取ったIDを、スカウトIDの形式に変換して作成
-         * レガシーシステムとの連携時などに使用
+         * 外部システムから受け取ったIDを、スカウトIDの形式に変換して作成 レガシーシステムとの連携時などに使用
          *
          * @param externalId 外部システムのID
          * @return 変換されたスカウトID
@@ -51,17 +47,15 @@ class ScoutId private constructor(private val value: String) {
         }
 
         /**
-         * 複数のスカウトIDをカンマ区切りの文字列から解析
-         * バッチ処理などで使用
+         * 複数のスカウトIDをカンマ区切りの文字列から解析 バッチ処理などで使用
          *
          * @param idsString カンマ区切りのID文字列
          * @return スカウトIDのリスト
          */
         fun parseMultiple(idsString: String): List<ScoutId> {
-            return idsString.split(",")
-                .map { it.trim() }
-                .filter { it.isNotEmpty() }
-                .map { from(it) }
+            return idsString.split(",").map { it.trim() }.filter { it.isNotEmpty() }.map {
+                from(it)
+            }
         }
 
         /**
@@ -107,8 +101,7 @@ class ScoutId private constructor(private val value: String) {
     }
 
     /**
-     * プレフィックスを除去したUUID部分のみを取得
-     * 外部システムとの連携時に使用
+     * プレフィックスを除去したUUID部分のみを取得 外部システムとの連携時に使用
      *
      * @return プレフィックスを除去したUUID文字列
      */
@@ -161,10 +154,7 @@ class ScoutId private constructor(private val value: String) {
         return value.hashCode()
     }
 
-    /**
-     * 他のスカウトIDと比較
-     * ソート処理などで使用
-     */
+    /** 他のスカウトIDと比較 ソート処理などで使用 */
     operator fun compareTo(other: ScoutId): Int {
         return value.compareTo(other.value)
     }
