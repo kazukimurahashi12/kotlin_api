@@ -60,6 +60,14 @@ enum class ScoutStatus(
     DELETED("DELETED", "削除済み", "削除されたスカウト");
 
     companion object {
-        
+
+        fun getActiveStatuses(): List<ScoutStatus> {
+            return listOf(DRAFT, SENT, READ)
+        }
     }
+
+    fun isActive(): Boolean {
+        return this in getActiveStatuses()
+    }
+
 }
