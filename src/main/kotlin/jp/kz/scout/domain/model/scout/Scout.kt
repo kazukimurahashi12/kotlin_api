@@ -10,7 +10,7 @@ import jp.kz.scout.domain.event.ScoutCreatedEvent
 import jp.kz.scout.domain.event.ScoutStatusChangedEvent
 
 /**
- * スカウト集約のルート
+ * スカウトの 集約ルート（Aggregate Root）
  *
  * リクルーターから候補者へ送信される求人スカウトを表すドメインエンティティ。 スカウトには状態遷移があり、作成→送信→既読→返信というライフサイクルをもつ。
  * スカウトの内容やステータスの整合性をこのエンティティが保証。

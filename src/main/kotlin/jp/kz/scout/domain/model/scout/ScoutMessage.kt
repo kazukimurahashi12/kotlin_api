@@ -2,7 +2,11 @@ package jp.kz.scout.domain.model.scout
 
 import java.time.LocalDateTime
 
-/** スカウトに含まれるメッセージ内容を表す値オブジェクト */
+/**
+ * スカウトに含まれるメッセージ内容を表す値オブジェクト
+ *
+ * 振る舞いをもつドメインオブジェクトとして定義するため data classにしない
+ */
 class ScoutMessage
 private constructor(
         val subject: String,
