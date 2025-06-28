@@ -1,5 +1,7 @@
 package jp.kz.scout.domain.model.scout
 
+import java.time.LocalDateTime
+
 /**
  * スカウトのテンプレートを表すエンティティ
  *
